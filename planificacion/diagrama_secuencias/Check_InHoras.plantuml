@@ -1,0 +1,18 @@
+@startuml CheckIn_Horas  
+actor Cliente  
+participant "App Hotel" as App  
+participant "Recepción (Auto)" as Recepcion  
+participant "Sistema Habitaciones" as Habitacion  
+participant "Sistema Parking" as Parking  
+
+Cliente -> App: Selecciona habitación + estacionamiento  
+App -> Recepcion: Valida disponibilidad (QR)  
+Recepcion -> Parking: Asigna plaza (si aplica)  
+Parking --> Recepcion: Confirma plaza (ej: "B3")  
+Recepcion -> Habitacion: Bloquea habitación  
+Habitacion --> Recepcion: Llave RFID lista  
+Recepcion --> App: Envía QR de acceso  
+App -> Cliente: Muestra QR + mapa parking  
+Cliente -> Parking: Escanea QR (entrada)  
+Parking --> Cliente: Abre barrera  
+@enduml  

@@ -1,0 +1,14 @@
+@startuml CheckOut_Dias  
+actor Cliente  
+participant "App Hotel" as App  
+participant Recepcion  
+participant "Sistema Parking" as Parking  
+
+Cliente -> App: Solicita "Late check-out"  
+App -> Recepcion: Valida disponibilidad  
+Recepcion --> App: Confirma 1h extra gratis  
+App -> Cliente: Notifica nuevo horario  
+Cliente -> Parking: Extiende tiempo (opcional)  
+Parking --> App: Actualiza factura  
+App -> Cliente: Envía factura detallada + puntos fidelización  
+@enduml  

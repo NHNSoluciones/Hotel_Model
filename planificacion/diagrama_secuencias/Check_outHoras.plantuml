@@ -1,0 +1,27 @@
+@startuml CheckOut_Horas  
+actor Cliente  
+participant "App Hotel" as App  
+participant "Sistema Parking" as Parking  
+participant "Limpieza" as Limpieza  
+
+Cliente -> App: Click "Salir ahora"  
+App -> Parking: Verifica tiempo de salida  
+Parking --> App: Calcula cargo extra (si aplica)  
+App -> Cliente: Muestra factura simplificada  
+Cliente -> Parking: Escanea QR para salir  
+Parking --> Cliente: Abre barrera  
+App -> Limpieza: Notifica habitación a limpiar  
+@enduml   @startuml CheckOut_Horas  
+actor Cliente  
+participant "App Hotel" as App  
+participant "Sistema Parking" as Parking  
+participant "Limpieza" as Limpieza  
+
+Cliente -> App: Click "Salir ahora"  
+App -> Parking: Verifica tiempo de salida  
+Parking --> App: Calcula cargo extra (si aplica)  
+App -> Cliente: Muestra factura simplificada  
+Cliente -> Parking: Escanea QR para salir  
+Parking --> Cliente: Abre barrera  
+App -> Limpieza: Notifica habitación a limpiar  
+@enduml   

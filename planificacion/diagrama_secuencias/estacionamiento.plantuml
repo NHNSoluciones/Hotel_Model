@@ -1,0 +1,16 @@
+@startuml Estacionamiento  
+actor Cliente  
+participant "App Hotel" as App  
+participant "Sistema Parking" as Parking  
+participant "Cámaras" as Camaras  
+
+Cliente -> App: Selecciona "Estacionamiento"  
+App -> Parking: Consulta plazas disponibles  
+Parking --> App: Devuelve mapa (verde/rojo)  
+Cliente -> App: Elige plaza (ej: "Cubierta B2")  
+App -> Camaras: Registra matrícula  
+Camaras --> App: Confirma  
+App -> Parking: Bloquea plaza  
+Parking --> App: Genera QR de acceso  
+App -> Cliente: Muestra QR + ruta  
+@enduml  

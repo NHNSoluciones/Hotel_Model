@@ -1,0 +1,17 @@
+@startuml CheckIn_Dias  
+actor Cliente  
+participant "App Hotel" as App  
+participant Recepcion  
+participant "Sistema Habitaciones" as Habitacion  
+participant "Sistema Parking" as Parking  
+
+Cliente -> App: Registra matrícula + tipo parking  
+App -> Recepcion: Envía datos pre-check-in  
+Recepcion -> Parking: Reserva plaza (ej: "12A")  
+Parking --> Recepcion: Confirma  
+Recepcion -> Habitacion: Prepara habitación (amenities)  
+Habitacion --> Recepcion: OK  
+Recepcion --> App: Notifica "Habitación lista"  
+Cliente -> Recepcion: Entrega documento (físico/digital)  
+Recepcion -> Cliente: Entrega tarjeta magnética + mapa  
+@enduml  
